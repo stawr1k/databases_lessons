@@ -1,10 +1,54 @@
 # Лекция 5: Подключение и работа с Redis на языке Python
 
+
 ## 1. Введение и подготовка окружения
 
 Для работы с Redis из языка Python используется официальная клиентская библиотека `redis`.
 
-### Установка библиотеки
+### Шаг 1. Проверка установки Python
+
+Перед началом работы убедитесь, что Python установлен в системе.
+
+```sh
+python --version
+```
+
+или для Linux / macOS:
+
+```sh
+python3 --version
+```
+
+Если команда не найдена или версия ниже 3.8 — установите Python с официального сайта [python.org](https://www.python.org/downloads/) (для Windows обязательно отметьте галочку **Add Python to PATH** во время установки).
+
+> **Важно:** в VS Code также необходимо установить расширение **Python** (от Microsoft) — оно добавляет подсветку синтаксиса, автодополнение, запуск и отладку кода, а также автоматически подхватывает созданное виртуальное окружение.
+
+### Шаг 2. Создание виртуального окружения
+
+Виртуальное окружение изолирует зависимости проекта от глобальных пакетов системы.
+
+| Система | Команда |
+|---------|---------|
+| Windows | `python -m venv .venv` |
+| Linux | `python3 -m venv .venv` |
+| macOS | `python3 -m venv .venv` |
+
+### Шаг 3. Активация виртуального окружения
+
+```sh
+# Windows (cmd)
+.venv\Scripts\activate.bat
+
+# Windows (PowerShell)
+.venv\Scripts\Activate.ps1
+
+# Linux / macOS
+source .venv/bin/activate
+```
+
+После активации в начале строки терминала появится префикс `(.venv)`.
+
+### Шаг 4. Установка библиотеки
 
 ```sh
 pip install redis
@@ -92,7 +136,7 @@ print(f"Current Age: {current_age}") # 27
 
 ## 6. Работа со сложными структурами данных
 
-###  Списки (Lists)
+### Списки (Lists)
 
 ```python
 # Добавление элементов в конец списка (RPUSH)
@@ -104,7 +148,7 @@ tasks = [task.decode('utf-8') for task in raw_tasks]
 print(f"Tasks: {tasks}") # ['Task 1', 'Task 2', 'Task 3']
 ```
 
-###  Множества (Sets)
+### Множества (Sets)
 
 ```python
 # Добавление уникальных элементов (SADD)
@@ -116,7 +160,7 @@ tags = [tag.decode('utf-8') for tag in raw_tags]
 print(f"Tags: {tags}")
 ```
 
-###  Хэш-таблицы (Hashes)
+### Хэш-таблицы (Hashes)
 
 ```python
 # Запись объекта в хэш-таблицу (HSET)
@@ -132,7 +176,7 @@ user_data = {k.decode('utf-8'): v.decode('utf-8') for k, v in raw_user.items()}
 print(f"User Data: {user_data}")
 ```
 
-###  Упорядоченные множества (Sorted Sets)
+### Упорядоченные множества (Sorted Sets)
 
 ```python
 # Добавление элементов с баллами Score (ZADD)
