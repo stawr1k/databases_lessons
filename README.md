@@ -4,3 +4,4 @@
 | :--- | :--- | :---: |
 | **PostgreSQL** | Основы SQL: 5 блоков с уроками и практическими работами | [Открыть](./PostgreSQL/README.md) |
 | **Redis** | 7 лекций по Redis и работе с ним на Python | [Открыть](./Redis/README.md) |
+| **MySQL** | 7 лекций по MySQL от базового SQL до оптимизации и Python | [Открыть](./MySQL/README.md) |
